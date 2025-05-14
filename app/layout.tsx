@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Navbar from "@/app/_components/Navbar";
+//import EmotionProvider from "@/app/_components/EmotionProvider";
 import { CssBaseline } from "@mui/material";
 import "./globals.css";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
 export const metadata: Metadata = {
     title: "Ecommerce Demo App",
@@ -9,24 +11,24 @@ export const metadata: Metadata = {
     icons: [
         {
             rel: "icon",
-            url: "/favicon.svg",
+            url: "/images/logo.svg",
         },
-    ]
+    ],
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-      <html lang="en">
-        <head>
-          <title>E-commerce Demo</title>
-        </head>
-        <body>
-          <CssBaseline />
-          <Navbar />
-          <main className="mx-auto">{children}</main>
-        </body>
-      </html>
+        <html lang="en">
+            <head />
+            <body>
+            <AppRouterCacheProvider>
+                    <CssBaseline />
+                    <Navbar />
+                    <main>{children}</main>
+                    </AppRouterCacheProvider>
+            </body>
+        </html>
     );
 };
-  
+
 export default RootLayout;

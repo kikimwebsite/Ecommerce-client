@@ -1,0 +1,34 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+  width="100"
+  height="100"
+  fill="none"
+>
+  <!-- Triangle for the main "A" structure -->
+  <polygon
+    points="50,5 90,95 10,95"
+    fill="#1976D2"
+  />
+  <!-- Inner cutout to emphasize the "A" shape -->
+  <polygon
+    points="50,20 75,85 25,85"
+    fill="white"
+  />
+  <!-- Vertical bar of the "T" overlapping the "A" -->
+  <rect
+    x="45"
+    y="15"
+    width="10"
+    height="70"
+    fill="#1976D2"
+  />
+  <!-- Horizontal bar of the "T" overlapping the "A" -->
+  <rect
+    x="25"
+    y="25"
+    width="50"
+    height="10"
+    fill="#1976D2"
+  />
+</svg>
