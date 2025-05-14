@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Navbar from "@/app/_components/Navbar";
-import { CssBaseline } from "@mui/material";
+import ThemeProviderClient from "@/app/_theme/ThemeProviderClient";
 import "./globals.css";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import Navbar from "@/app/_components/Navbar";
 
 export const metadata: Metadata = {
     title: "Ecommerce Demo App",
@@ -15,19 +15,19 @@ export const metadata: Metadata = {
     ],
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <head />
             <body>
             <AppRouterCacheProvider>
-                    <CssBaseline />
+                <ThemeProviderClient>
+
                     <Navbar />
                     <main>{children}</main>
-                    </AppRouterCacheProvider>
+
+                </ThemeProviderClient>
+                </AppRouterCacheProvider>
             </body>
         </html>
     );
-};
-
-export default RootLayout;
+}
