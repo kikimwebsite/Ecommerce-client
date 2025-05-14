@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/app/_lib/types';
 
-// Define props for the component
 interface SlidingProductShowcaseProps {
     products: Product[];
 }
@@ -13,29 +12,29 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
     return (
         <Box
             sx={{
-                overflow: 'hidden', // Ensures content outside the box is hidden
-                width: '100%', // Full width container
+                overflow: 'hidden',
+                width: '100%',
                 backgroundColor: '#f9f9f9',
                 py: 2,
+                mb: 4,
             }}
         >
             <Box
                 sx={{
                     display: 'flex',
-                    animation: 'slide 15s linear infinite', // Animation applied here
+                    animation: 'slide 15s linear infinite',
                     '@keyframes slide': {
                         '0%': { transform: 'translateX(0)' },
-                        '100%': { transform: 'translateX(-100%)' },
+                        '100%': { transform: `translateX(-${100 / 3}%)` },
                     },
                 }}
             >
-                {/* Repeat the product list twice for smooth looping */}
-                {[...products, ...products].map((product, index) => (
+                {[...products, ...products, ...products].map((product, index) => (
                     <Box
                         key={`${product.id}-${index}`}
                         sx={{
-                            minWidth: 200, // Width of each product card
-                            flexShrink: 0, // Prevent shrinking
+                            minWidth: 200,
+                            flexShrink: 0,
                             p: 2,
                             textAlign: 'center',
                         }}

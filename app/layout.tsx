@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "@/app/_components/navbar";
+import Navbar from "@/app/_components/Navbar";
 import { CssBaseline } from "@mui/material";
 import "./globals.css";
 
@@ -27,6 +27,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         </body>
       </html>
     );
-  };
+};
   
-  export default RootLayout;
+export default RootLayout;

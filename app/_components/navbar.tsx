@@ -7,7 +7,7 @@ const Navbar = () => {
         <AppBar position="static">
         <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            E-commerce Demo
+                Aketoy Demo
             </Typography>
             <nav>
                 <Link href="/main">Main</Link>
