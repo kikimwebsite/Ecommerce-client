@@ -2,13 +2,15 @@ import React from 'react';
 import { Box } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
+import Skeleton from '@mui/material/Skeleton';
 import { Product } from '@/app/_lib/types';
 
 interface SlidingProductShowcaseProps {
     products: Product[];
+    isLoading: boolean;
 }
 
-const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ products }) => {
+const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ products, isLoading }) => {
     return (
         <Box
             sx={{
@@ -43,30 +45,46 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
                     },
                 }}
             >
-                {[...products, ...products, ...products, ...products, ...products].map((product, index) => (
-                    <Box
-                        key={`${product.id}-${index}`}
-                        sx={{
-                            minWidth: 200,
-                            flexShrink: 0,
-                            p: 2,
-                            textAlign: 'center',
-                        }}
-                    >
-                        <Link href={`/products/${encodeURIComponent(product.category.toLowerCase())}/${encodeURIComponent(product.name.toLowerCase())}`}>
-                            <Image
-                                src={product.img}
-                                alt={product.name}
+                {isLoading
+                    ? Array.from({ length: 25 }).map((_, i) => (
+                        <Box key={i} sx={{ minWidth: 200, flexShrink: 0, p: 2, textAlign: 'center' }}>
+                            <Skeleton
+                                variant="rectangular"
                                 width={200}
                                 height={150}
-                                style={{
-                                    objectFit: 'cover',
-                                    borderRadius: '8px',
-                                }}
+                                sx={{ bgcolor: "#424242" }} // dark grey
                             />
-                        </Link>
-                    </Box>
-                ))}
+                            <Skeleton
+                                variant="text"
+                                width={120}
+                                sx={{ mt: 1, bgcolor: "#424242" }} // dark grey
+                            />
+                        </Box>
+                    ))
+                    : [...products, ...products, ...products, ...products, ...products].map((product, index) => (
+                        <Box
+                            key={`${product.id}-${index}`}
+                            sx={{
+                                minWidth: 200,
+                                flexShrink: 0,
+                                p: 2,
+                                textAlign: 'center',
+                            }}
+                        >
+                            <Link href={`/products/${encodeURIComponent(product.category.toLowerCase())}/${encodeURIComponent(product.name.toLowerCase())}`}>
+                                <Image
+                                    src={product.img}
+                                    alt={product.name}
+                                    width={200}
+                                    height={150}
+                                    style={{
+                                        objectFit: 'cover',
+                                        borderRadius: '8px',
+                                    }}
+                                />
+                            </Link>
+                        </Box>
+                    ))}
             </Box>
         </Box>
     );

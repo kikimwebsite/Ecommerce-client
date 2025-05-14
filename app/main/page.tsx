@@ -15,8 +15,26 @@ export default async function Main() {
                 <Typography variant="h6" component="div" sx={{ ml: 5, mt: 3, mb: 3 }}>
                     Popular New Products
                 </Typography>
+
+                    <SlidingProductShowcase products={hotProducts} isLoading={hotProducts.length === 0} />
+}
+            </section>
+            <section>
+                <CategoryGrid />
+            </section>
+        </>
+    );
+}
+
+/*
+    return (
+        <>
+            <section>
+                <Typography variant="h6" component="div" sx={{ ml: 5, mt: 3, mb: 3 }}>
+                    Popular New Products
+                </Typography>
                 {hotProducts.length > 0 ? (
-                    <SlidingProductShowcase products={hotProducts} />
+                    <SlidingProductShowcase products={hotProducts} isLoading={hotProducts.length === 0} />
                 ) : (
                     <Typography variant="body1" sx={{ ml: 5, mt: 2 }}>
                         No hot products available at the moment.
@@ -27,5 +45,4 @@ export default async function Main() {
                 <CategoryGrid />
             </section>
         </>
-    );
-}
+    );*/
