@@ -12,7 +12,7 @@ export default async function Main() {
     return (
         <>
             <section>
-                <Typography variant="h6" component="div" sx={{ ml: 5, mt: 5, mb: 1 }}>
+                <Typography variant="h6" component="div" sx={{ ml: 5, mt: 3, mb: 3 }}>
                     Popular New Products
                 </Typography>
                 {hotProducts.length > 0 ? (

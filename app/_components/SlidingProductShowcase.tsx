@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/app/_lib/types';
@@ -14,7 +14,21 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
             sx={{
                 overflow: 'hidden',
                 width: '100%',
-                backgroundColor: '#f9f9f9',
+                background: `linear-gradient(
+                    45deg,
+                    #f7f7f7 4%,
+                    #eaeaea 8%,
+                    #f7f7f7 12%,
+                    #dcdcdc 16%,
+                    #eeeeee 20%,
+                    #cccccc 24%,
+                    #ffffff 30%,
+                    #dddddd 50%,
+                    #828181 70%,
+                    #e0e0e0 80%,
+                    #f7f7f7 90%,
+                    #cccccc 96%
+                )`,
                 py: 2,
                 mb: 4,
             }}
@@ -22,14 +36,14 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
             <Box
                 sx={{
                     display: 'flex',
-                    animation: 'slide 15s linear infinite',
+                    animation: 'slide 25s linear infinite',
                     '@keyframes slide': {
                         '0%': { transform: 'translateX(0)' },
                         '100%': { transform: `translateX(-${100 / 3}%)` },
                     },
                 }}
             >
-                {[...products, ...products, ...products].map((product, index) => (
+                {[...products, ...products, ...products, ...products, ...products].map((product, index) => (
                     <Box
                         key={`${product.id}-${index}`}
                         sx={{
