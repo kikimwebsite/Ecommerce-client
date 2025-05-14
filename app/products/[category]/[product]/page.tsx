@@ -4,6 +4,7 @@ import React from "react";
 import { Grid, Typography, Button } from "@mui/material";
 import { useProducts } from "@/app/_context/ProductContext";
 import { Product } from "@/app/_lib/types";
+import Image from "next/image";
 
 interface Params {
     product: string;
@@ -26,10 +27,12 @@ const ProductDetailsPage = ({ params }: { params: Promise<Params> }) => {
     return (
         <Grid container spacing={4} alignItems="flex-start">
             <Grid size={{ xs: 12, lg: 7 }}>
-                <img
+                <Image
                     src={foundProduct.img}
                     alt={foundProduct.name}
-                    style={{ width: "100%", height: "auto", borderRadius: "8px" }}
+                    width={600}
+                    height={340}
+                    style={{ width: "100%", height: "auto", borderRadius: "8px", objectFit: "cover" }}
                 />
             </Grid>
             <Grid size={{ xs: 12, lg: 5 }} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>

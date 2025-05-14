@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ThemeProviderClient from "@/app/_theme/ThemeProviderClient";
 import "./globals.css";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import Navbar from "@/app/_components/Navbar";
+import Navigation from "@/app/_components/Navigation";
 
 export const metadata: Metadata = {
     title: "Ecommerce Demo App",
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <AppRouterCacheProvider>
                 <ThemeProviderClient>
 
-                    <Navbar />
+                    <Navigation />
                     <main>{children}</main>
 
                 </ThemeProviderClient>

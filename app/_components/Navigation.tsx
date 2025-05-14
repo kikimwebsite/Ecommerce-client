@@ -10,7 +10,7 @@ import { ThemeModeContext } from "@/app/_theme/ThemeProviderClient";
 
 const SUN_YELLOW = "#FFD600"; // Sunlight yellow
 
-const Navbar = () => {
+const Navigation = () => {
   const { mode, toggleMode } = React.useContext(ThemeModeContext);
 
   return (
@@ -87,4 +87,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navigation;
