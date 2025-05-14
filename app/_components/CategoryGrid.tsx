@@ -5,7 +5,7 @@ import { categories } from "@/app/_lib/constants";
 
 const CategoryGrid: React.FC = () => {
     return (
-            <Grid container spacing={4}             
+            <Grid container spacing={5}             
                 sx={{
                     maxWidth: "lg",
                     justifyContent: "center",
@@ -29,6 +29,7 @@ const CategoryGrid: React.FC = () => {
                                     "&:hover": {
                                         transform: "scale(1.05)",
                                     },
+                                    border: "2px solid #e0e0e0",
                                     margin: "0 auto",
                                 }}
                             >
@@ -40,7 +41,7 @@ const CategoryGrid: React.FC = () => {
                                         left: "50%",
                                         transform: "translateX(-50%)",
                                         color: "#fff",
-                                        backgroundColor: "rgba(0, 0, 0, 0.6)",
+                                        backgroundColor: "rgba(0, 0, 0, 0.2)", // semi-transparent black for readability
                                         padding: "8px 16px",
                                         borderRadius: "4px",
                                         textAlign: "center",

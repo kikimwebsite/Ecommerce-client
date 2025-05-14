@@ -36,7 +36,7 @@ const ProductDetailsPage = ({ params }: { params: Promise<Params> }) => {
                 <Typography variant="h4">{foundProduct.name}</Typography>
                 <Typography variant="subtitle1">Category: {foundProduct.category}</Typography>
                 <Typography variant="h5" color="primary">
-                    {foundProduct.price}
+                    ${foundProduct.price}
                 </Typography>
                 <Typography variant="body1">{foundProduct.description}</Typography>
                 <Button variant="contained" color="primary">

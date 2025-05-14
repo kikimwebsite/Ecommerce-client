@@ -39,7 +39,7 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
                             textAlign: 'center',
                         }}
                     >
-                        <Link href={`/product/${product.name}`}>
+                        <Link href={`/products/${encodeURIComponent(product.category.toLowerCase())}/${encodeURIComponent(product.name.toLowerCase())}`}>
                             <Image
                                 src={product.img}
                                 alt={product.name}
@@ -50,9 +50,6 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
                                     borderRadius: '8px',
                                 }}
                             />
-                            <Typography variant="subtitle1" sx={{ mt: 1 }}>
-                                {product.name}
-                            </Typography>
                         </Link>
                     </Box>
                 ))}
