@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/app/_components/Navbar";
-//import EmotionProvider from "@/app/_components/EmotionProvider";
 import { CssBaseline } from "@mui/material";
 import "./globals.css";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';

@@ -22,12 +22,14 @@ const Navbar = () => {
                             </Typography>
                         </Box>
                     </Link>
-                    <Box sx={{ display: "flex", gap: 2 }}>
+                    <Box sx={{ display: "flex", gap: 2, mr: 10}}>
                         <Link href="/main">Main</Link>
                         <Link href="/products">Products</Link>
                         <Link href="/statistics">Statistics</Link>
                         <Link href="/contact">Contact</Link>
                     </Box>
+
+
                 </Toolbar>
             </AppBar>
         </nav>

@@ -44,6 +44,7 @@ const CategoryGrid: React.FC = () => {
                                         padding: "8px 16px",
                                         borderRadius: "4px",
                                         textAlign: "center",
+                                        width: "300px"
                                     }}
                                 >
                                     {category.name}

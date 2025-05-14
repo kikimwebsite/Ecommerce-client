@@ -1,30 +1,31 @@
-import { retrieveProducts } from "@/app/_lib/actions";
+import { retrieveHotProducts } from "@/app/_lib/actions";
 import SlidingProductShowcase from "@/app/_components/SlidingProductShowcase";
 import CategoryGrid from "@/app/_components/CategoryGrid";
 import { Product } from "@/app/_lib/types";
 import Typography from "@mui/material/Typography";
 
+export const revalidate = 86400;
+
 export default async function Main() {
-    try {
-        const products: Product[] = await retrieveProducts();
-        const newProducts: Product[] = products.slice(-3);
+    const hotProducts: Product[] = await retrieveHotProducts();
 
-        return (
-            <>
-                <section>
-                    <Typography variant="h6" component="div" sx={{ ml: 5, mt: 5, mb: 1 }}>
-                        Popular New Products
+    return (
+        <>
+            <section>
+                <Typography variant="h6" component="div" sx={{ ml: 5, mt: 5, mb: 1 }}>
+                    Popular New Products
+                </Typography>
+                {hotProducts.length > 0 ? (
+                    <SlidingProductShowcase products={hotProducts} />
+                ) : (
+                    <Typography variant="body1" sx={{ ml: 5, mt: 2 }}>
+                        No hot products available at the moment.
                     </Typography>
-                    <SlidingProductShowcase products={newProducts} />
-                </section>
-                <section>
-                    <CategoryGrid />
-                </section>
-            </>
-        );
-
-    } catch (error) {
-        console.error("Failed to fetch messages:", error);
-        throw new Error("Failed to load messages");
-    }
+                )}
+            </section>
+            <section>
+                <CategoryGrid />
+            </section>
+        </>
+    );
 }
