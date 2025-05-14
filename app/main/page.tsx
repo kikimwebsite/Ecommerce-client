@@ -17,7 +17,7 @@ export default async function Main() {
                 </Typography>
 
                     <SlidingProductShowcase products={hotProducts} isLoading={hotProducts.length === 0} />
-}
+
             </section>
             <section>
                 <CategoryGrid />
