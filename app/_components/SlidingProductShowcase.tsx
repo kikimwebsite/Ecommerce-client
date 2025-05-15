@@ -52,12 +52,12 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
                                 variant="rectangular"
                                 width={200}
                                 height={150}
-                                sx={{ bgcolor: "#424242" }} // dark grey
+                                sx={{ bgcolor: "#424242" }}
                             />
                             <Skeleton
                                 variant="text"
                                 width={120}
-                                sx={{ mt: 1, bgcolor: "#424242" }} // dark grey
+                                sx={{ mt: 1, bgcolor: "#424242" }}
                             />
                         </Box>
                     ))

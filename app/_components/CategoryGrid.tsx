@@ -42,7 +42,7 @@ const CategoryGrid: React.FC = () => {
                                         left: "50%",
                                         transform: "translateX(-50%)",
                                         color: "#fff",
-                                        backgroundColor: "rgba(0, 0, 0, 0.2)", // semi-transparent black for readability
+                                        backgroundColor: "rgba(0, 0, 0, 0.2)",
                                         padding: "8px 16px",
                                         borderRadius: "4px",
                                         textAlign: "center",

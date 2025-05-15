@@ -11,7 +11,7 @@ const ProductsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) =
                     mt: 5,
                     p: 2,
                     position: { md: "sticky", xs: "static" },
-                    top: { md: 32, xs: "auto" }, // 32px ≈ mt:5
+                    top: { md: 32, xs: "auto" },
                     alignSelf: "flex-start",
                     height: "fit-content",
                     zIndex: 1,
