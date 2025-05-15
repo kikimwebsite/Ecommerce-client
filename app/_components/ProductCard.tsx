@@ -6,36 +6,36 @@ import { Product } from "@/app/_lib/types";
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     return (
-        <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-            <Box sx={{ position: "relative", width: "100%", height: 340 }}>
-                <Image
-                    src={product.img}
-                    alt={product.name}
-                    fill
-                    style={{ objectFit: "cover", borderTopLeftRadius: 4, borderTopRightRadius: 4 }}
-                    sizes="(max-width: 600px) 100vw, 400px"
-                />
-            </Box>
-            <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h6" component="div">
-                    {product.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    ${product.price}
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Link href={`/products/${product.category.toLowerCase()}/${product.name.toLowerCase()}`}>
-                    <Button
-                        size="small"
+        <Link href={`/products/${product.category.toLowerCase()}/${product.name.toLowerCase()}`}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+                <Box sx={{ position: "relative", width: "100%", height: 340 }}>
+                    <Image
+                        src={product.img}
+                        alt={product.name}
+                        fill
+                        style={{ objectFit: "cover", borderTopLeftRadius: 4, borderTopRightRadius: 4 }}
+                        sizes="(max-width: 600px) 100vw, 400px"
+                    />
+                </Box>
+                <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h6" component="div">
+                        {product.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        ${product.price}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Typography
+                        component='div'
                         color="primary"
-                        sx={{ border: "1px solid", borderColor: "primary.main" }}
+                        sx={{ borderBottom: "1px solid", borderColor: "primary.main", ml: 1, mb: 2}}
                     >
-                        Details
-                    </Button>
-                </Link>
-            </CardActions>
-        </Card>
+                        Click to View Details
+                    </Typography>
+                </CardActions>
+            </Card>
+        </Link>
     );
 };
 

@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             <Box
                                 component="footer"
                                 sx={{
-                                    height: 64, // fixed height in px
+                                    height: 64,
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",

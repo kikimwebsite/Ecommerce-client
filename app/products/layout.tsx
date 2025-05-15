@@ -21,7 +21,13 @@ const ProductsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) =
                     <Sidebar />
                 </Box>
             </Grid>
-            <Grid size={{ xs: 12, md: 8, lg: 9 }} sx={{ p: 10, pl: 3}}>
+            <Grid
+                size={{ xs: 12, md: 8, lg: 9 }}
+                sx={{
+                    p: { xs: 2, sm: 8 },
+                    pl: { xs: 0, md: 3 },
+                }}
+            >
                 {children}
             </Grid>
         </Grid>

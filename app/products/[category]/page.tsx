@@ -23,7 +23,16 @@ const ProductsPage = ({ params }: { params: Promise<Params> }) => {
     return (
         <Grid container spacing={4}>
             {filteredProducts.map((product) => (
-                <Grid size={{xs: 12, md: 12, lg: 4}} key={product.name}>
+                <Grid
+                    key={product.name} 
+                    size={{xs: 12, lg: 4}} 
+                    sx={{                                
+                        transition: "transform 0.3s",
+                        "&:hover": {
+                            transform: "scale(1.05)",
+                        },
+                    }}
+                >
                     <ProductCard product={product} />
                 </Grid>
             ))}
