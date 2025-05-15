@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Typography, CardActions, Button, Box } from "@mui/material";
+import { Card, CardContent, Typography, CardActions, Box } from "@mui/material";
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/app/_lib/types";
