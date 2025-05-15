@@ -3,6 +3,7 @@ import SlidingProductShowcase from "@/app/_components/SlidingProductShowcase";
 import CategoryGrid from "@/app/_components/CategoryGrid";
 import { Product } from "@/app/_lib/types";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 export const revalidate = 86400;
 
@@ -11,20 +12,18 @@ export default async function Main() {
 
     return (
         <>
-            <section>
+            <Box component="section">
                 <Typography variant="h6" component="div" sx={{ ml: 5, mt: 3 }}>
                     New Popular Products!
                 </Typography>
-
-                    <SlidingProductShowcase products={hotProducts} isLoading={hotProducts.length === 0} />
-
-            </section>
-            <section>
+                <SlidingProductShowcase products={hotProducts} isLoading={hotProducts.length === 0} />
+            </Box>
+            <Box component="section">
                 <Typography variant="h4" component="div" sx={{ mt: 5, justifyContent: "center", display: "flex" }}>
                     Product Categories
                 </Typography>
                 <CategoryGrid />
-            </section>
+            </Box>
         </>
     );
 }

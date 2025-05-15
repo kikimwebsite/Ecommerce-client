@@ -6,33 +6,45 @@ export const getTheme = (mode: "light" | "dark") =>
       mode,
       primary: mode === "dark"
         ? {
-            main: "#FFD600", // Flashlight yellow for night mode
-            light: "#FFEA70",
-            dark: "#C7A500",
-            contrastText: "#222",
+            main: "#FFD600",      // Flashlight yellow for night mode
+            light: "#FFEA70",     // Lighter yellow for highlights
+            dark: "#C7A500",      // Deeper yellow for contrast
+            contrastText: "#222", // Dark text for readability on yellow
           }
         : {
-            main: "#60A5FA", // Light sky blue for light mode
-            light: "#93C5FD",
-            dark: "#1E40AF",
-            contrastText: "#222", // Dark text for better contrast on blue
+            main: "#60A5FA",      // Light sky blue for light mode
+            light: "#93C5FD",     // Lighter blue for highlights
+            dark: "#1E40AF",      // Deep blue for contrast
+            contrastText: "#222", // Dark text for readability on blue
           },
       secondary: {
-        main: "#2DD4BF", // Teal accent
-        light: "#5EEAD4",
-        dark: "#0F766E",
-        contrastText: "#fff",
+        main: "#2DD4BF",         // Teal accent for buttons/links
+        light: "#5EEAD4",        // Lighter teal for hover/active states
+        dark: "#0F766E",         // Deep teal for contrast
+        contrastText: "#fff",    // White text for readability on teal
       },
       background: mode === "dark"
-        ? { default: "#0F172A", paper: "#1E293B" }
-        : { default: "#FFF", paper: "#F0F9FF" }, // Very light blue for card backgrounds
+        ? { 
+            default: "#0F172A",  // Very dark blue for app background (dark mode)
+            paper: "#1E293B"     // Slightly lighter dark blue for cards/paper (dark mode)
+          }
+        : { 
+            default: "#FFF",     // White for app background (light mode)
+            paper: "#F0F9FF"     // Very light blue for cards/paper (light mode)
+          },
       text: mode === "dark"
-        ? { primary: "#F1F5F9", secondary: "#FFD600" }
-        : { primary: "#222", secondary: "#1E40AF" }, // Dark text for light mode
+        ? { 
+            primary: "#F1F5F9",  // Light gray for main text (dark mode)
+            secondary: "#FFD600" // Yellow for secondary text (dark mode)
+          }
+        : { 
+            primary: "#222",     // Almost black for main text (light mode)
+            secondary: "#1E40AF" // Deep blue for secondary text (light mode)
+          },
     },
     shape: { borderRadius: 16 },
     typography: {
-      fontFamily: "'Quicksand', 'Nunito', Arial, sans-serif",
+      //fontFamily: "'Quicksand', 'Nunito', Arial, sans-serif",
       h1: { fontWeight: 700 },
       h2: { fontWeight: 700 },
       h3: { fontWeight: 700 },
@@ -48,7 +60,7 @@ export const getTheme = (mode: "light" | "dark") =>
           root: {
             borderRadius: 20,
             boxShadow: "0 4px 24px 0 rgba(45, 212, 191, 0.08)",
-            background: mode === "dark" ? "#1E293B" : "#F0F9FF",
+            background: mode === "dark" ? "#1E293B" /* Card bg dark */ : "#F0F9FF" /* Card bg light */,
           },
         },
       },
