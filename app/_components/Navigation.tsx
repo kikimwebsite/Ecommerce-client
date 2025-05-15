@@ -75,10 +75,32 @@ const Navigation = () => {
                 </Box>
             </Box>
             <Box sx={{ display: "flex", gap: 2, mr: 10 }}>
-                <Link href="/main">Main</Link>
-                <Link href="/products">Products</Link>
-                <Link href="/statistics">Statistics</Link>
-                <Link href="/contacts">Contacts</Link>
+                {[
+                    { href: "/main", label: "Main" },
+                    { href: "/products", label: "Products" },
+                    { href: "/statistics", label: "Statistics" },
+                    { href: "/contacts", label: "Contacts" },
+                ].map(({ href, label }) => (
+                    <Link
+                        key={href}
+                        href={href}
+                    >
+                        <Box
+                            sx={{
+                                px: 1,
+                                py: 0.5,
+                                borderBottom: "1px solid transparent",
+                                "&:hover": {
+                                    borderBottom: `1px ${SUN_YELLOW} solid`,
+                                },
+                                cursor: "pointer",
+                                display: "inline-block",
+                            }}
+                        >
+                            {label}
+                        </Box>
+                    </Link>
+                ))}
             </Box>
             </Toolbar>
         </AppBar>
