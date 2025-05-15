@@ -20,6 +20,9 @@ export default async function Main() {
 
             </section>
             <section>
+                <Typography variant="h4" component="div" sx={{ mt: 5, justifyContent: "center", display: "flex" }}>
+                    Product Categories
+                </Typography>
                 <CategoryGrid />
             </section>
         </>

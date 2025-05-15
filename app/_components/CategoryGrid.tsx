@@ -10,7 +10,8 @@ const CategoryGrid: React.FC = () => {
                     maxWidth: "lg",
                     justifyContent: "center",
                     mx: "auto",
-                    mb: 5,
+                    mt: 5,
+                    mb: 15,
                 }}
             >
                 {categories.map((category) => (
