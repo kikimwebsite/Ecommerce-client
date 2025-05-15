@@ -28,7 +28,7 @@ const Navigation = () => {
                         style={{ marginRight: "8px", marginBottom: "10px" }}
                     />
                     <Typography variant="h6" component="div">
-                    Aketoy
+                        Aketoy
                     </Typography>
                 </Box>
                 </Link>
@@ -58,7 +58,6 @@ const Navigation = () => {
                         color="primary"
                         inputProps={{ "aria-label": "theme switch" }}
                         sx={{
-                            mt: 0.5,
                             '& .MuiSwitch-switchBase.Mui-checked': {
                                 color: SUN_YELLOW,
                             },

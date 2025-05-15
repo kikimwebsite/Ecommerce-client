@@ -24,7 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                     <Navigation />
                     <main>{children}</main>
-
+                    <footer>
+                        <p>© 2025 Aketoy Ecommerce Demo App</p>
+                    </footer>
                 </ThemeProviderClient>
                 </AppRouterCacheProvider>
             </body>

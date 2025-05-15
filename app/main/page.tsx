@@ -12,8 +12,8 @@ export default async function Main() {
     return (
         <>
             <section>
-                <Typography variant="h6" component="div" sx={{ ml: 5, mt: 3, mb: 3 }}>
-                    Popular New Products
+                <Typography variant="h6" component="div" sx={{ ml: 5, mt: 3 }}>
+                    New Popular Products!
                 </Typography>
 
                     <SlidingProductShowcase products={hotProducts} isLoading={hotProducts.length === 0} />
