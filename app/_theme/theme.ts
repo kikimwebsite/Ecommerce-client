@@ -39,7 +39,7 @@ export const getTheme = (mode: "light" | "dark") =>
           }
         : { 
             primary: "#222",     // Almost black for main text (light mode)
-            secondary: "#b4c2f0" // Deep blue for secondary text (light mode)
+            secondary: "#405494" // Deep blue for secondary text (light mode)
           },
     },
     shape: { borderRadius: 16 },
