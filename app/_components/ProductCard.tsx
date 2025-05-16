@@ -6,7 +6,9 @@ import { Product } from "@/app/_lib/types";
 
 const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
     return (
-        <Link href={`/products/${product.category.toLowerCase()}/${product.name.toLowerCase()}`}>
+        <Link
+            href={`/products/${encodeURIComponent(product.category.toLowerCase())}/${encodeURIComponent(product.name.toLowerCase())}`}
+        >
             <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
                 <Box sx={{ position: "relative", width: "100%", height: 340 }}>
                     <Image
