@@ -7,11 +7,13 @@ import Image from "next/image";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import { ThemeModeContext } from "@/app/_theme/ThemeProviderClient";
+import { usePathname } from "next/navigation";
 
 const SUN_YELLOW = "#FFD600";
 
 const Navigation = () => {
     const { mode, toggleMode } = React.useContext(ThemeModeContext);
+    const pathname = usePathname();
 
     return (
         <nav>
@@ -80,27 +82,47 @@ const Navigation = () => {
                     { href: "/products", label: "Products" },
                     { href: "/statistics", label: "Statistics" },
                     { href: "/contacts", label: "Contacts" },
-                ].map(({ href, label }) => (
-                    <Link
-                        key={href}
-                        href={href}
-                    >
+                ].map(({ href, label }) => {
+                    return pathname.includes(href) ? (
                         <Box
+                            key={href}
                             sx={{
                                 px: 1,
                                 py: 0.5,
-                                borderBottom: "1px solid transparent",
-                                "&:hover": {
-                                    borderBottom: `1px ${SUN_YELLOW} solid`,
-                                },
-                                cursor: "pointer",
+                                borderBottom: `2px solid ${SUN_YELLOW}`,
+                                fontWeight: 700,
+                                color: SUN_YELLOW,
+                                cursor: "default",
                                 display: "inline-block",
+                                opacity: 0.7,
                             }}
                         >
                             {label}
                         </Box>
-                    </Link>
-                ))}
+                    ) : (
+                        <Link
+                            key={href}
+                            href={href}
+                            style={{ textDecoration: "none", color: "inherit" }}
+                        >
+                            <Box
+                                sx={{
+                                    px: 1,
+                                    py: 0.5,
+                                    borderBottom: "2px solid transparent",
+                                    fontWeight: 600,
+                                    "&:hover": {
+                                        borderBottom: `2px solid ${SUN_YELLOW}`,
+                                    },
+                                    cursor: "pointer",
+                                    display: "inline-block",
+                                }}
+                            >
+                                {label}
+                            </Box>
+                        </Link>
+                    );
+                })}
             </Box>
             </Toolbar>
         </AppBar>

@@ -14,7 +14,7 @@ export const getTheme = (mode: "light" | "dark") =>
         : {
             main: "#60A5FA",      // Light sky blue for light mode
             light: "#93C5FD",     // Lighter blue for highlights
-            dark: "#1E40AF",      // Deep blue for contrast
+            dark: "#b4c2f0",      // Deep blue for contrast
             contrastText: "#222", // Dark text for readability on blue
           },
       secondary: {
@@ -26,7 +26,7 @@ export const getTheme = (mode: "light" | "dark") =>
       background: mode === "dark"
         ? { 
             default: "#0F172A",  // Very dark blue for app background (dark mode)
-            paper: "#1E293B"     // Slightly lighter dark blue for cards/paper (dark mode)
+            paper: "#04070b"     // Slightly lighter dark blue for cards/paper (dark mode)
           }
         : { 
             default: "#FFF",     // White for app background (light mode)
@@ -39,7 +39,7 @@ export const getTheme = (mode: "light" | "dark") =>
           }
         : { 
             primary: "#222",     // Almost black for main text (light mode)
-            secondary: "#1E40AF" // Deep blue for secondary text (light mode)
+            secondary: "#b4c2f0" // Deep blue for secondary text (light mode)
           },
     },
     shape: { borderRadius: 16 },

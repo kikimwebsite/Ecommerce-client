@@ -11,7 +11,7 @@ export const ThemeModeContext = React.createContext({
 });
 
 export default function ThemeProviderClient({ children }: { children: React.ReactNode }) {
-  const [mode, setMode] = React.useState<"light" | "dark">("dark");
+  const [mode, setMode] = React.useState<"light" | "dark">("light");
   const theme = React.useMemo(() => getTheme(mode), [mode]);
 
   const toggleMode = React.useCallback(
