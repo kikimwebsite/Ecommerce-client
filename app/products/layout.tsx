@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Box } from "@mui/material";
 import Sidebar from "@/app/_components/Sidebar";
+import Cart from "@/app/_components/Cart";
 
 const ProductsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
@@ -19,6 +20,7 @@ const ProductsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) =
             >
                 <Box>
                     <Sidebar />
+                    <Cart />
                 </Box>
             </Grid>
             <Grid
