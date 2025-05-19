@@ -8,6 +8,23 @@ export type Product = {
     reviews?: Review[];
 }
 
+export type CartItem = {
+    product: Product;
+    quantity: number;
+}
+
+export type PurchaseHistory = {
+    purchases: Purchase[];
+}
+
+export type Purchase = {
+    id: string;
+    cart: CartItem[];
+    totalPrice: number;
+    purchaseDate: string;
+}
+
+
 export type Review = {
     id: string;
     productId: string;
@@ -20,21 +37,4 @@ export type User = {
     id: string;
     email: string;
     PurchaseHistory?: PurchaseHistory;
-}
-
-export type PurchaseHistory = {
-    email: string;
-    purchases: Purchase[];
-}
-
-export type Purchase = {
-    id: string;
-    products: Product[];
-    purchaseDate: string;
-    quantity: number;
-}
-
-export type Cart = {
-    email: string;
-    products: Product[];
 }

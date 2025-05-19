@@ -3,7 +3,7 @@
 import React from "react";
 import { Grid, Typography, Button } from "@mui/material";
 import { useProducts } from "@/app/_context/ProductContext";
-import { Product } from "@/app/_lib/types";
+import { CartItem, Product } from "@/app/_lib/types";
 import Image from "next/image";
 
 interface Params {
@@ -16,7 +16,7 @@ const ProductDetailsPage = ({ params }: { params: Promise<Params> }) => {
 
     const decodedProduct = decodeURIComponent(product);
 
-    const foundProduct = products.find(
+    const foundProduct: Product | undefined = products.find(
         (p) => p.name.toLowerCase() === decodedProduct.toLowerCase()
     );
 
@@ -46,18 +46,18 @@ const ProductDetailsPage = ({ params }: { params: Promise<Params> }) => {
                     variant="contained"
                     color="primary"
                     onClick={() => {
-                        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-                        console.log(cart);
-                        const existing = cart.find((item: any) => item.id === foundProduct.id);
+                        const localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                        const existing = localCart.find((item: CartItem) => item.product.id === foundProduct.id);
                         if (existing) {
                             existing.quantity += 1;
                         } else {
-                            cart.push({ ...foundProduct, quantity: 1 });
+                            localCart.push({ product: foundProduct, quantity: 1 });
                         }
-                        localStorage.setItem("cart", JSON.stringify(cart));
+                        localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                        window.dispatchEvent(new Event("localAkeToyCartUpdated"));
                     }}
                 >
-                    Add to Cart
+                    Add to localCart
                 </Button>
             </Grid>
         </Grid>
