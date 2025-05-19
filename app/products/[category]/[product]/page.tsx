@@ -1,7 +1,7 @@
 'use client'
 
-import React from "react";
-import { Grid, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Grid, Typography, Button, Snackbar, Alert } from "@mui/material";
 import { useProducts } from "@/app/_context/ProductContext";
 import { CartItem, Product } from "@/app/_lib/types";
 import Image from "next/image";
@@ -15,6 +15,8 @@ const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) =
     const products: Product[] = useProducts();
     const { product } = React.use(params);
 
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+
     const decodedProduct = decodeURIComponent(product);
 
     const foundProduct: Product | undefined = products.find(
@@ -24,6 +26,19 @@ const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) =
     if (!foundProduct) {
         return <Typography variant="h6">Product not found</Typography>;
     }
+
+    const handleAddToCart = () => {
+        const localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
+        const existing = localCart.find((item: CartItem) => item.product.id === foundProduct.id);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            localCart.push({ product: foundProduct, quantity: 1 });
+        }
+        localStorage.setItem(LOCAL_CART_KEY, JSON.stringify(localCart));
+        window.dispatchEvent(new Event("localAkeToyCartUpdated"));
+        setSnackbarOpen(true);
+    };
 
     return (
         <Grid container spacing={4} alignItems="flex-start">
@@ -46,20 +61,20 @@ const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) =
                 <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => {
-                        const localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
-                        const existing = localCart.find((item: CartItem) => item.product.id === foundProduct.id);
-                        if (existing) {
-                            existing.quantity += 1;
-                        } else {
-                            localCart.push({ product: foundProduct, quantity: 1 });
-                        }
-                        localStorage.setItem(LOCAL_CART_KEY, JSON.stringify(localCart));
-                        window.dispatchEvent(new Event("localAkeToyCartUpdated"));
-                    }}
+                    onClick={handleAddToCart}
                 >
                     Add to Cart
                 </Button>
+                <Snackbar
+                    open={snackbarOpen}
+                    autoHideDuration={2000}
+                    onClose={() => setSnackbarOpen(false)}
+                    anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                >
+                    <Alert severity="success" onClose={() => setSnackbarOpen(false)} sx={{ width: '100%', fontSize: 17 }}>
+                        Added to cart!
+                    </Alert>
+                </Snackbar>
             </Grid>
         </Grid>
     );
