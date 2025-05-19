@@ -54,6 +54,7 @@ const Purchase: React.FC = () => {
                                                 "&:hover": {
                                                     transform: "scale(1.05)",
                                                 },
+                                                border: "1px solid #e0e0e0",
                                             }}
                                         />
                                     </Link>

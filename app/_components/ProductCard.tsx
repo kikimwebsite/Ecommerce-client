@@ -9,7 +9,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
         <Link
             href={`/products/${encodeURIComponent(product.category.toLowerCase())}/${encodeURIComponent(product.name.toLowerCase())}`}
         >
-            <Card sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+            <Card sx={{ display: "flex", flexDirection: "column", height: "100%", border: "1px solid #e0e0e0",}}>
                 <Box sx={{ position: "relative", width: "100%", height: 340 }}>
                     <Image
                         src={product.img}

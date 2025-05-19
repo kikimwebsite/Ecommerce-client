@@ -27,6 +27,7 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
                         '0%': { transform: 'translateX(0)' },
                         '100%': { transform: `translateX(-600%)` },
                     },
+                    alignItems: "center" 
                 }}
             >
                 {isLoading
@@ -69,6 +70,7 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
                                     style={{
                                         objectFit: 'cover',
                                         borderRadius: '8px',
+                                        border: "1px solid #e0e0e0",
                                     }}
                                 />
                             </Link>
