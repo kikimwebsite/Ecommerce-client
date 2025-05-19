@@ -82,6 +82,7 @@ const Navigation = () => {
                     { href: "/products", label: "Products" },
                     { href: "/statistics", label: "Statistics" },
                     { href: "/contacts", label: "Contacts" },
+                    { href: "/purchase", label: "Cart" },
                 ].map(({ href, label }) => {
                     return pathname.includes(href) ? (
                         <Box
