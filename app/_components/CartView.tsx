@@ -50,7 +50,14 @@ const CartView: React.FC = () => {
         >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <ShoppingCartIcon sx={{ mr: 1 }} />
-                <Typography>Your Cart</Typography>
+                <Typography sx={{ flex: 1 }}>Your Cart</Typography>
+                <Box sx={{ display: "flex", justifyContent: "flex-end", mr: 2 }}>
+                    <Link href="/purchase">
+                        <Button variant="contained" color="success" size="small">
+                            Go to Purchase
+                        </Button>
+                    </Link>
+                </Box>
             </AccordionSummary>
             <AccordionDetails>
                 {cartState.length === 0 ? (
@@ -126,13 +133,6 @@ const CartView: React.FC = () => {
                                 </IconButton>
                             </Box>
                         ))}
-                        <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
-                            <Link href="/purchase">
-                                <Button variant="contained" color="success">
-                                    Go to Purchase
-                                </Button>
-                            </Link>
-                        </Box>
                     </>
                 )}
             </AccordionDetails>
