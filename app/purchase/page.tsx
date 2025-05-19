@@ -21,7 +21,7 @@ const Purchase: React.FC = () => {
     }, []);
 
     const changeQuantity = (id: string, change: number) => {
-        let updatedCart = [...cart];
+        const updatedCart = [...cart];
         const idx = updatedCart.findIndex((item) => item.product.id === id);
         if (idx !== -1) {
             if (updatedCart[idx].quantity + change <= 0) {
@@ -36,7 +36,7 @@ const Purchase: React.FC = () => {
     };
 
     const handleRemove = (id: string) => {
-        let updatedCart = cart.filter((item) => item.product.id !== id);
+        const updatedCart = cart.filter((item) => item.product.id !== id);
         setCart(updatedCart);
         localStorage.setItem(LOCAL_CART_KEY, JSON.stringify(updatedCart));
         setDialogOpen(false);

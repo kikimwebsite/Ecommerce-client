@@ -29,7 +29,6 @@ const CartView: React.FC = () => {
     const [cartState, setCartState] = useState<CartItem[]>([]);
     const [expanded, setExpanded] = useState(true);
 
-    // Dialog state
     const [dialogOpen, setDialogOpen] = useState(false);
     const [pendingRemoveId, setPendingRemoveId] = useState<string | null>(null);
 
@@ -68,15 +67,15 @@ const CartView: React.FC = () => {
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <ShoppingCartIcon sx={{ mr: 1 }} />
                 <Typography sx={{ flex: 1 }}>Your Cart</Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end", mr: 2 }}>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Box sx={{ display: "flex", mb: 2 }}>
                     <Link href="/purchase">
                         <Button variant="contained" color="success" size="small">
                             Go to Purchase
                         </Button>
                     </Link>
                 </Box>
-            </AccordionSummary>
-            <AccordionDetails>
                 {cartState.length === 0 ? (
                     <Typography variant="body2" color="text.secondary">
                         Your cart is empty.
@@ -121,7 +120,7 @@ const CartView: React.FC = () => {
                                             setPendingRemoveId(item.product.id);
                                             setDialogOpen(true);
                                         } else {
-                                            let localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
+                                            const localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
                                             const idx = localCart.findIndex((i: CartItem) => i.product.id === item.product.id);
                                             if (idx !== -1) {
                                                 localCart[idx].quantity -= 1;

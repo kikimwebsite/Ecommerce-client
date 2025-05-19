@@ -1,11 +1,13 @@
 'use client'
 
 import React, { useState } from "react";
-import { Grid, Typography, Button, Snackbar, Alert } from "@mui/material";
+import { Grid, Typography, Button, Snackbar, Alert, Box } from "@mui/material";
 import { useProducts } from "@/app/_context/ProductContext";
 import { CartItem, Product } from "@/app/_lib/types";
 import Image from "next/image";
 import { LOCAL_CART_KEY } from "@/app/_lib/constants";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { useRouter } from "next/navigation";
 
 interface Params {
     product: string;
@@ -14,6 +16,7 @@ interface Params {
 const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) => {
     const products: Product[] = useProducts();
     const { product } = React.use(params);
+    const router = useRouter();
 
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
@@ -41,6 +44,17 @@ const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) =
     };
 
     return (
+        <Box sx={{ mt: { xs: 0, lg: -5 } }}>
+            <Button
+                startIcon={<ArrowBackIosNewIcon />}
+                onClick={() => router.back()}
+                sx={{
+                    mb: 2,
+                    ml: { xs: 0, lg: "calc(58.3333%)" }
+                }}
+            >
+                Back
+            </Button>
         <Grid container spacing={4} alignItems="flex-start">
             <Grid size={{ xs: 12, lg: 7 }}>
                 <Image
@@ -77,6 +91,7 @@ const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) =
                 </Snackbar>
             </Grid>
         </Grid>
+        </Box>
     );
 };
 

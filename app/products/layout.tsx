@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Box } from "@mui/material";
 import Sidebar from "@/app/_components/Sidebar";
 
-const ProductsLayout: React.FC<{ children: React.ReactNode, cartview: React.ReactNode }> = ({ children, cartview }) => {
+const ProductsLayout = ({ children, cartview }: { children: React.ReactNode; cartview: React.ReactNode }) => {
     return (
         <Grid container>
             <Grid
