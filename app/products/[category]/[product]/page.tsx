@@ -58,7 +58,7 @@ const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) =
                         window.dispatchEvent(new Event("localAkeToyCartUpdated"));
                     }}
                 >
-                    Add to localCart
+                    Add to Cart
                 </Button>
             </Grid>
         </Grid>
