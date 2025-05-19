@@ -6,6 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import NightlightIcon from "@mui/icons-material/Nightlight";
+import HomeIcon from "@mui/icons-material/Home";
+import CategoryIcon from "@mui/icons-material/Category";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import ContactsIcon from "@mui/icons-material/Contacts";
 import { ThemeModeContext } from "@/app/_theme/ThemeProviderClient";
 import { usePathname } from "next/navigation";
 
@@ -14,6 +19,14 @@ const SUN_YELLOW = "#FFD600";
 const Navigation = () => {
     const { mode, toggleMode } = React.useContext(ThemeModeContext);
     const pathname = usePathname();
+
+    const navLinks = [
+        { href: "/main", label: "Main", icon: <HomeIcon fontSize="small" sx={{ mr: 1 }} /> },
+        { href: "/products", label: "Products", icon: <CategoryIcon fontSize="small" sx={{ mr: 1 }} /> },
+        { href: "/admin", label: "Admin", icon: <BarChartIcon fontSize="small" sx={{ mr: 1 }} /> },
+        { href: "/purchase", label: "Cart", icon: <ShoppingCartIcon fontSize="small" sx={{ mr: 1 }} /> },
+        { href: "/contacts", label: "Contacts", icon: <ContactsIcon fontSize="small" sx={{ mr: 1 }} /> },
+    ];
 
     return (
         <nav>
@@ -77,13 +90,7 @@ const Navigation = () => {
                 </Box>
             </Box>
             <Box sx={{ display: "flex", gap: 2, mr: 10 }}>
-                {[
-                    { href: "/main", label: "Main" },
-                    { href: "/products", label: "Products" },
-                    { href: "/statistics", label: "Statistics" },
-                    { href: "/contacts", label: "Contacts" },
-                    { href: "/purchase", label: "Cart" },
-                ].map(({ href, label }) => {
+                {navLinks.map(({ href, label, icon }) => {
                     return pathname.includes(href) ? (
                         <Box
                             key={href}
@@ -98,6 +105,7 @@ const Navigation = () => {
                                 opacity: 0.7,
                             }}
                         >
+                            {icon}
                             {label}
                         </Box>
                     ) : (
@@ -119,6 +127,7 @@ const Navigation = () => {
                                     display: "inline-block",
                                 }}
                             >
+                                {icon}
                                 {label}
                             </Box>
                         </Link>
