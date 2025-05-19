@@ -1,7 +1,2 @@
-import React from "react";
-
-const Cart: React.FC = () => (
-    <div>default</div>
-);
-
-export default Cart;
+import CartView from "@/app/_components/CartView";
+export default CartView;
