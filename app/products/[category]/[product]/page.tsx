@@ -5,6 +5,7 @@ import { Grid, Typography, Button } from "@mui/material";
 import { useProducts } from "@/app/_context/ProductContext";
 import { CartItem, Product } from "@/app/_lib/types";
 import Image from "next/image";
+import { LOCAL_CART_KEY } from "@/app/_lib/constants";
 
 interface Params {
     product: string;
@@ -46,14 +47,14 @@ const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) =
                     variant="contained"
                     color="primary"
                     onClick={() => {
-                        const localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                        const localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
                         const existing = localCart.find((item: CartItem) => item.product.id === foundProduct.id);
                         if (existing) {
                             existing.quantity += 1;
                         } else {
                             localCart.push({ product: foundProduct, quantity: 1 });
                         }
-                        localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                        localStorage.setItem(LOCAL_CART_KEY, JSON.stringify(localCart));
                         window.dispatchEvent(new Event("localAkeToyCartUpdated"));
                     }}
                 >

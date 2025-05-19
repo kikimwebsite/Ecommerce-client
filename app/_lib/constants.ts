@@ -3,3 +3,5 @@ export const categories = [
     { name: "Dolls", imageUrl: "/images/dolls.jpg", href: "products/dolls" },
     { name: "Jewelry", imageUrl: "/images/jewelry.jpg", href: "products/jewelry" },
 ];
+
+export const LOCAL_CART_KEY = "localAkeToyCart";

@@ -18,13 +18,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
 import { CartItem } from "@/app/_lib/types";
 import Link from "next/link";
+import { LOCAL_CART_KEY } from "@/app/_lib/constants";
 
 const CartView: React.FC = () => {
     const [cartState, setCartState] = React.useState<CartItem[]>([]);
     const [expanded, setExpanded] = React.useState(true);
 
     const loadCart = () => {
-        const localCart = localStorage.getItem("localAkeToyCart");
+        const localCart = localStorage.getItem(LOCAL_CART_KEY);
         setCartState(JSON.parse(localCart || "[]"));
     };
 
@@ -68,21 +69,20 @@ const CartView: React.FC = () => {
                                     mb: 1,
                                     p: 1,
                                     border: "1px solid #eee",
-                                    borderRadius: 2,
+                                    borderRadius: 0.5,
                                 }}
                             >
                                 <Typography sx={{ flex: 1 }}>{item.product.name}</Typography>
                                 <Typography sx={{ mx: 1 }}>{item.quantity}x</Typography>
                                 <IconButton
-                                    size="small"
                                     color="primary"
                                     aria-label="add"
                                     onClick={() => {
-                                        const localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                                        const localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
                                         const idx = localCart.findIndex((i: CartItem) => i.product.id === item.product.id);
                                         if (idx !== -1) {
                                             localCart[idx].quantity += 1;
-                                            localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                                            localStorage.setItem(LOCAL_CART_KEY, JSON.stringify(localCart));
                                             window.dispatchEvent(new Event("localAkeToyCartUpdated"));
                                         }
                                     }}
@@ -90,18 +90,17 @@ const CartView: React.FC = () => {
                                     <AddIcon fontSize="small" />
                                 </IconButton>
                                 <IconButton
-                                    size="small"
                                     color="primary"
                                     aria-label="remove"
                                     onClick={() => {
-                                        let localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                                        let localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
                                         const idx = localCart.findIndex((i: CartItem) => i.product.id === item.product.id);
                                         if (idx !== -1) {
                                             localCart[idx].quantity -= 1;
                                             if (localCart[idx].quantity <= 0) {
                                                 localCart = localCart.filter((i: CartItem) => i.product.id !== item.product.id);
                                             }
-                                            localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                                            localStorage.setItem(LOCAL_CART_KEY, JSON.stringify(localCart));
                                             window.dispatchEvent(new Event("localAkeToyCartUpdated"));
                                         }
                                     }}
@@ -109,18 +108,17 @@ const CartView: React.FC = () => {
                                     <RemoveIcon fontSize="small" />
                                 </IconButton>
                                 <Link href={`/products/${encodeURIComponent(item.product.category.toLowerCase())}/${encodeURIComponent(item.product.name.toLowerCase())}`}>
-                                  <IconButton size="small" color="info" aria-label="details">
+                                  <IconButton color="info" aria-label="details">
                                     <SearchIcon fontSize="small" />
                                   </IconButton>
                                 </Link>
                                 <IconButton
-                                    size="small"
                                     color="error"
                                     aria-label="remove from cart"
                                     onClick={() => {
-                                        let localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                                        let localCart = JSON.parse(localStorage.getItem(LOCAL_CART_KEY) || "[]");
                                         localCart = localCart.filter((i: CartItem) => i.product.id !== item.product.id);
-                                        localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                                        localStorage.setItem(LOCAL_CART_KEY, JSON.stringify(localCart));
                                         window.dispatchEvent(new Event("localAkeToyCartUpdated"));
                                     }}
                                 >

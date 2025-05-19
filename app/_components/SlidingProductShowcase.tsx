@@ -16,7 +16,6 @@ const SlidingProductShowcase: React.FC<SlidingProductShowcaseProps> = ({ product
             sx={{
                 overflow: 'hidden',
                 width: '100%',
-                borderTop: '1px solidrgb(193, 155, 155)',
                 mb: 4,
             }}
         >
