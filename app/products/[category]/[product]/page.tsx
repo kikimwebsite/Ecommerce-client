@@ -42,7 +42,21 @@ const ProductDetailsPage = ({ params }: { params: Promise<Params> }) => {
                     ${foundProduct.price}
                 </Typography>
                 <Typography variant="body1">{foundProduct.description}</Typography>
-                <Button variant="contained" color="primary">
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+                        console.log(cart);
+                        const existing = cart.find((item: any) => item.id === foundProduct.id);
+                        if (existing) {
+                            existing.quantity += 1;
+                        } else {
+                            cart.push({ ...foundProduct, quantity: 1 });
+                        }
+                        localStorage.setItem("cart", JSON.stringify(cart));
+                    }}
+                >
                     Add to Cart
                 </Button>
             </Grid>

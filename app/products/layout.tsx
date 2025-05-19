@@ -1,9 +1,8 @@
 import React from "react";
 import { Grid, Box } from "@mui/material";
 import Sidebar from "@/app/_components/Sidebar";
-import Cart from "@/app/_components/Cart";
 
-const ProductsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ProductsLayout: React.FC<{ children: React.ReactNode, cart: React.ReactNode }> = ({ children, cart }) => {
     return (
         <Grid container>
             <Grid
@@ -20,7 +19,7 @@ const ProductsLayout: React.FC<{ children: React.ReactNode }> = ({ children }) =
             >
                 <Box>
                     <Sidebar />
-                    <Cart />
+                    {cart}
                 </Box>
             </Grid>
             <Grid
