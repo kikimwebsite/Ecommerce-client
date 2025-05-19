@@ -4,7 +4,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-export default function Contacts() {
+const Contacts: React.FC = () => {
     return (
         <div style={{ maxWidth: 600, margin: "0 auto", padding: "40px 0" }}>
             <Typography variant="h3" fontWeight="bold" gutterBottom>
@@ -50,4 +50,6 @@ export default function Contacts() {
             </Card>
         </div>
     );
-}
+};
+
+export default Contacts;

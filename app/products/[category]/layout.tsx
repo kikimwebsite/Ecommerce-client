@@ -2,7 +2,7 @@ import React from "react";
 import { retrieveAllProducts } from "@/app/_lib/actions";
 import ProductProviderClient from "@/app/_context/ProductProviderClient";
 
-export default async function ProductsLayout({ children }: { children: React.ReactNode }) {
+const ProductsLayout: React.FC<{ children: React.ReactNode }> = async ({ children }) => {
     const products = await retrieveAllProducts();
 
     return (
@@ -10,4 +10,6 @@ export default async function ProductsLayout({ children }: { children: React.Rea
             {children}
         </ProductProviderClient>
     );
-}
+};
+
+export default ProductsLayout;

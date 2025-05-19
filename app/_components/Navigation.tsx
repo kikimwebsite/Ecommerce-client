@@ -16,7 +16,7 @@ import { usePathname } from "next/navigation";
 
 const SUN_YELLOW = "#FFD600";
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
     const { mode, toggleMode } = React.useContext(ThemeModeContext);
     const pathname = usePathname();
 

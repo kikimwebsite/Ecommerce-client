@@ -1,3 +1,4 @@
+import React from "react";
 import { retrieveHotProducts } from "@/app/_lib/actions";
 import SlidingProductShowcase from "@/app/_components/SlidingProductShowcase";
 import CategoryGrid from "@/app/_components/CategoryGrid";
@@ -7,7 +8,7 @@ import Box from "@mui/material/Box";
 
 export const revalidate = 86400;
 
-export default async function Main() {
+const Main: React.FC = async () => {
     const hotProducts: Product[] = await retrieveHotProducts();
 
     return (
@@ -26,7 +27,9 @@ export default async function Main() {
             </Box>
         </>
     );
-}
+};
+
+export default Main;
 
 /*
     return (

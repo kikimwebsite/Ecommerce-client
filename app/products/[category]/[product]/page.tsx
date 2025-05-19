@@ -10,7 +10,7 @@ interface Params {
     product: string;
 }
 
-const ProductDetailsPage = ({ params }: { params: Promise<Params> }) => {
+const ProductDetailsPage: React.FC<{ params: Promise<Params> }> = ({ params }) => {
     const products: Product[] = useProducts();
     const { product } = React.use(params);
 
