@@ -73,16 +73,57 @@ const CartView: React.FC = () => {
                             >
                                 <Typography sx={{ flex: 1 }}>{item.product.name}</Typography>
                                 <Typography sx={{ mx: 1 }}>{item.quantity}x</Typography>
-                                <IconButton size="small" color="primary" aria-label="add">
+                                <IconButton
+                                    size="small"
+                                    color="primary"
+                                    aria-label="add"
+                                    onClick={() => {
+                                        const localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                                        const idx = localCart.findIndex((i: CartItem) => i.product.id === item.product.id);
+                                        if (idx !== -1) {
+                                            localCart[idx].quantity += 1;
+                                            localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                                            window.dispatchEvent(new Event("localAkeToyCartUpdated"));
+                                        }
+                                    }}
+                                >
                                     <AddIcon fontSize="small" />
                                 </IconButton>
-                                <IconButton size="small" color="primary" aria-label="remove">
+                                <IconButton
+                                    size="small"
+                                    color="primary"
+                                    aria-label="remove"
+                                    onClick={() => {
+                                        let localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                                        const idx = localCart.findIndex((i: CartItem) => i.product.id === item.product.id);
+                                        if (idx !== -1) {
+                                            localCart[idx].quantity -= 1;
+                                            if (localCart[idx].quantity <= 0) {
+                                                localCart = localCart.filter((i: CartItem) => i.product.id !== item.product.id);
+                                            }
+                                            localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                                            window.dispatchEvent(new Event("localAkeToyCartUpdated"));
+                                        }
+                                    }}
+                                >
                                     <RemoveIcon fontSize="small" />
                                 </IconButton>
-                                <IconButton size="small" color="info" aria-label="details">
+                                <Link href={`/products/${encodeURIComponent(item.product.category.toLowerCase())}/${encodeURIComponent(item.product.name.toLowerCase())}`}>
+                                  <IconButton size="small" color="info" aria-label="details">
                                     <SearchIcon fontSize="small" />
-                                </IconButton>
-                                <IconButton size="small" color="error" aria-label="remove from cart">
+                                  </IconButton>
+                                </Link>
+                                <IconButton
+                                    size="small"
+                                    color="error"
+                                    aria-label="remove from cart"
+                                    onClick={() => {
+                                        let localCart = JSON.parse(localStorage.getItem("localAkeToyCart") || "[]");
+                                        localCart = localCart.filter((i: CartItem) => i.product.id !== item.product.id);
+                                        localStorage.setItem("localAkeToyCart", JSON.stringify(localCart));
+                                        window.dispatchEvent(new Event("localAkeToyCartUpdated"));
+                                    }}
+                                >
                                     <CloseIcon fontSize="small" />
                                 </IconButton>
                             </Box>
