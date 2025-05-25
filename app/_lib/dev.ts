@@ -75,7 +75,6 @@ export const products: Product[] = [
     },
 ];
 
-// Example purchase history based on types.ts
 export const purchaseHistory: PurchaseHistory = {
     purchases: [
         {
