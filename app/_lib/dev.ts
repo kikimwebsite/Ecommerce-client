@@ -1,4 +1,4 @@
-import { Product } from './types';
+import { Product, PurchaseHistory } from './types';
 
 export const products: Product[] = [
     {
@@ -74,3 +74,68 @@ export const products: Product[] = [
         description: 'This adorable cat doll is soft, cuddly, and ready for adventure. With its charming face and plush body, it’s sure to become a favorite bedtime companion. Suitable for all ages.',
     },
 ];
+
+// Example purchase history based on types.ts
+export const purchaseHistory: PurchaseHistory = {
+    purchases: [
+        {
+            id: 'ph1',
+            cart: [
+                { product: products[0], quantity: 1 }, // Flying Plane
+            ],
+            totalPrice: 99.99,
+            purchaseDate: '2024-05-01T10:15:00Z',
+        },
+        {
+            id: 'ph2',
+            cart: [
+                { product: products[2], quantity: 2 }, // Dragon Doll
+                { product: products[5], quantity: 1 }, // Dancing Robot
+            ],
+            totalPrice: 319.97, // (2 * 129.99) + 59.99
+            purchaseDate: '2024-05-03T14:30:00Z',
+        },
+        {
+            id: 'ph3',
+            cart: [
+                { product: products[4], quantity: 1 }, // Favor Ring
+                { product: products[7], quantity: 1 }, // Bluestone Ring
+                { product: products[3], quantity: 1 }, // Jade Necklace
+            ],
+            totalPrice: 624.97, // 249.99 + 124.99 + 249.99
+            purchaseDate: '2024-05-10T09:00:00Z',
+        },
+        {
+            id: 'ph4',
+            cart: [
+                { product: products[1], quantity: 1 }, // Racing Car
+                { product: products[6], quantity: 2 }, // Bio Doll
+                { product: products[8], quantity: 1 }, // Cat Doll
+                { product: products[5], quantity: 1 }, // Dancing Robot
+            ],
+            totalPrice: 364.96, // 149.99 + (2*39.99) + 74.99 + 59.99
+            purchaseDate: '2024-05-15T18:45:00Z',
+        },
+        {
+            id: 'ph5',
+            cart: [
+                { product: products[7], quantity: 3 }, // Bluestone Ring
+                { product: products[2], quantity: 1 }, // Dragon Doll
+                { product: products[0], quantity: 1 }, // Flying Plane
+                { product: products[4], quantity: 1 }, // Favor Ring
+                { product: products[8], quantity: 1 }, // Cat Doll
+            ],
+            totalPrice: 729.95, // (3*124.99) + 129.99 + 99.99 + 249.99 + 74.99
+            purchaseDate: '2024-05-20T12:10:00Z',
+        },
+        {
+            id: 'ph6',
+            cart: [
+                { product: products[3], quantity: 1 }, // Jade Necklace
+                { product: products[6], quantity: 1 }, // Bio Doll
+            ],
+            totalPrice: 289.98, // 249.99 + 39.99
+            purchaseDate: '2024-05-22T16:20:00Z',
+        },
+    ]
+};
