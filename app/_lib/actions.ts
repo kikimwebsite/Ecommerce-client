@@ -6,7 +6,6 @@ import { products } from "./dev";
 export async function retrieveAllProducts(): Promise<Product[]> {
     //if (process.env.NODE_ENV === "development") {
         return Promise.resolve(products);
-    //
 
     /*try {
         // In production, fetch products from node server
@@ -23,6 +22,7 @@ export async function retrieveAllProducts(): Promise<Product[]> {
 }
 
 export async function retrieveHotProducts(): Promise<Product[]> {
+    //revalidate
     //if (process.env.NODE_ENV === "development") {
         return Promise.resolve(products);
     //}
@@ -38,6 +38,14 @@ export async function retrieveHotProducts(): Promise<Product[]> {
         return [];
     }*/
 }
+
+// gethistory
+
+
+// get review, revalidate
+
+
+
 
 /*
 
