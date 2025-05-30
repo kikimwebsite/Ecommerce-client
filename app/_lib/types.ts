@@ -24,10 +24,13 @@ export type Purchase = {
     purchaseDate: string;
 }
 
+export type Reviews = {
+    reviews: Review[];
+    productId: string;
+}
 
 export type Review = {
     id: string;
-    productId: string;
     rating: number;
     title: string;
     comment: string;

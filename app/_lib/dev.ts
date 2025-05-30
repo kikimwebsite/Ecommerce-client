@@ -1,4 +1,4 @@
-import { Product, PurchaseHistory } from './types';
+import { Product, PurchaseHistory, Reviews } from './types';
 
 export const products: Product[] = [
     {
@@ -257,4 +257,21 @@ export const purchaseHistory: PurchaseHistory = {
         },
     ]
 };
-
+/*
+export const reviews: Reviews = {
+    reviews: [
+        {
+            id: 'r1',
+            productId: '1',
+            rating: 5,
+            title: 'Amazing Flying Experience!',
+            comment: 'This flying plane is incredible! It flies smoothly and is easy to control. My kids love it and we have so much fun flying it in the park.',
+        },
+        {
+            id: 'r2',
+            productId: '2',
+            rating: 4,
+            title: 'Fast and Fun',
+            comment: 'The racing car is super fast and very durable. It can handle rough play and still performs great. The only downside is that the battery life could be longer.',
+        },
+        {*/
