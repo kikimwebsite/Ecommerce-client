@@ -257,21 +257,54 @@ export const purchaseHistory: PurchaseHistory = {
         },
     ]
 };
-/*
-export const reviews: Reviews = {
-    reviews: [
-        {
-            id: 'r1',
-            productId: '1',
-            rating: 5,
-            title: 'Amazing Flying Experience!',
-            comment: 'This flying plane is incredible! It flies smoothly and is easy to control. My kids love it and we have so much fun flying it in the park.',
-        },
-        {
-            id: 'r2',
-            productId: '2',
-            rating: 4,
-            title: 'Fast and Fun',
-            comment: 'The racing car is super fast and very durable. It can handle rough play and still performs great. The only downside is that the battery life could be longer.',
-        },
-        {*/
+
+export const testReviews: Reviews[] = [
+    {
+        productId: '1',
+        reviews: [
+            { id: 'r1', rating: 5, title: 'Great Plane', comment: 'Flies well and is fun for all ages.' },
+            { id: 'r2', rating: 4, title: 'Good Value', comment: 'Worth the price, easy to control.' },
+        ],
+    },
+    {
+        productId: '2',
+        reviews: [
+            { id: 'r3', rating: 5, title: 'Super Fast', comment: 'The racing car is really speedy!' },
+            { id: 'r4', rating: 4, title: 'Durable', comment: 'Survived many crashes, still works.' },
+            { id: 'r5', rating: 3, title: 'Battery Life', comment: 'Could last longer, but still fun.' },
+        ],
+    },
+    {
+        productId: '3',
+        reviews: [
+            { id: 'r6', rating: 5, title: 'Adorable Doll', comment: 'My child loves the dragon doll.' },
+        ],
+    },
+    {
+        productId: '4',
+        reviews: [
+            { id: 'r7', rating: 5, title: 'Beautiful Necklace', comment: 'Looks elegant and feels premium.' },
+            { id: 'r8', rating: 4, title: 'Nice Gift', comment: 'Gave as a gift, recipient loved it.' },
+        ],
+    },
+    {
+        productId: '5',
+        reviews: [
+            { id: 'r9', rating: 4, title: 'Sparkly Ring', comment: 'Very shiny and fits well.' },
+            { id: 'r10', rating: 5, title: 'Perfect for Events', comment: 'Wore it to a party, got compliments.' },
+        ],
+    },
+    {
+        productId: '6',
+        reviews: [
+            { id: 'r11', rating: 5, title: 'Fun Robot', comment: 'Kids love the dancing and lights.' },
+            { id: 'r12', rating: 4, title: 'Easy to Use', comment: 'Simple controls, works great.' },
+        ],
+    },
+    {
+        productId: '7',
+        reviews: [
+            { id: 'r13', rating: 5, title: 'Soft and Cute', comment: 'Perfect for role play and cuddling.' },
+        ],
+    },
+];

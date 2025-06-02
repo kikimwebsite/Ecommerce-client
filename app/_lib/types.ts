@@ -36,8 +36,9 @@ export type Review = {
     comment: string;
 }
 
+/*
 export type User = {
     id: string;
     email: string;
     PurchaseHistory?: PurchaseHistory;
-}
+}*/
